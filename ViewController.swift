@@ -3,7 +3,7 @@
 //  EmiCalculator
 //
 //  Created by ie16 on 19/10/24.
-//
+//  Created by shyam karma
 
 import UIKit
 
