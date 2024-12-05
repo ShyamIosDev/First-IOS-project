@@ -30,28 +30,20 @@ class ViewController: UIViewController {
         //sliderAmount.minimumValue = 10000
         //sliderAmount.maximumValue = 1000000
    }
-// sliders working......
-     
     @IBAction func AmountSliderChanges(_ sender: UISlider) {
         
         let currentValue = Int(sliderAmount.value)
         AmountValue.text = "\(currentValue)"
-        
-        
       }
     @IBAction func InterestSliderValue(_ sender: UISlider) {
         let currentValue = Int(interestslidervalue.value)
         InterestAmountValue.text = "\(currentValue)"
-       
     }
     
     @IBAction func yearslidervalue(_ sender: UISlider) {
         let currentValue = Int(yearsliderAmount.value)
         yearAmount.text = "\(currentValue)"
     }
-    
-    // working with textfeild......
-   
     @IBAction func textvaluechange(_ sender: UITextField) {
         if let value = sender.text {
              if let final = Float(value) {
@@ -75,16 +67,13 @@ class ViewController: UIViewController {
                  TenureStepper.value = Double(x)
              }
            }
-    }
-    
-//stepper working ......
+    } 
     @IBAction func AmountStipper(_ sender: UIStepper) {
         let value = sender.value
         let amountvalue = Int(value)
         AmountValue.text = String(amountvalue)
         sliderAmount.value = Float(value)
       }
-    
         @IBAction func InterestStepper(_ sender: UIStepper) {
            let Interestvalue = sender.value
        // InterestTextField.text = String(format:"%.02f", Interestvalue)
@@ -103,7 +92,6 @@ class ViewController: UIViewController {
         guard let amountText = AmountValue.text, let amount = Double(amountText), let interestText = InterestTextField.text, let interest =  Double(interestText), let yearText = TenureTextField.text, let year = Double(yearText)  else {
             return
         }
-        
         let interestValue = (interest / 12 ) / 100
         let month =  year * 12
         let multi = amount * interestValue
@@ -111,10 +99,7 @@ class ViewController: UIViewController {
         let total = multi * powered
         let x = (pow(1 + interestValue, month) - 1)
         let answer = total / x
-            
-        //var answer =  amount * interestValue * (pow(1 + interestValue, year))  / (pow(1 + interestValue, year) - 1)
         ResultLable.text = String(answer)
-        
         
     }
     
