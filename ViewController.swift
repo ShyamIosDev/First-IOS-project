@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var calButton: UIButton!
     @IBOutlet weak var ResultLable: UILabel!
     @IBOutlet weak var TenureTextField: UITextField!
@@ -24,17 +25,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var yearAmount: UITextField!
     @IBOutlet weak var yearsliderAmount: UISlider!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //sliderAmount.minimumValue = 10000
-        //sliderAmount.maximumValue = 1000000
-   }
+    }
+    //MARK: IBAction:
     @IBAction func AmountSliderChanges(_ sender: UISlider) {
         
         let currentValue = Int(sliderAmount.value)
         AmountValue.text = "\(currentValue)"
-      }
+    }
     @IBAction func InterestSliderValue(_ sender: UISlider) {
         let currentValue = Int(interestslidervalue.value)
         InterestAmountValue.text = "\(currentValue)"
@@ -46,40 +45,39 @@ class ViewController: UIViewController {
     }
     @IBAction func textvaluechange(_ sender: UITextField) {
         if let value = sender.text {
-             if let final = Float(value) {
-                 sliderAmount.value = final
-                 AmountStepper.value = Double(final)
-             }
-           }
+            if let final = Float(value) {
+                sliderAmount.value = final
+                AmountStepper.value = Double(final)
+            }
+        }
     }
     @IBAction func interesttextvalue(_ sender: UITextField) {
         if let value = sender.text {
-             if let x = Float(value) {
-                 interestSlider.value = x
-                 InterestStepper.value = Double(x)
-             }
-           }
+            if let x = Float(value) {
+                interestSlider.value = x
+                InterestStepper.value = Double(x)
+            }
+        }
     }
     @IBAction func tenuretextfeild(_ sender: UITextField) {
         if let value = sender.text {
-             if let x = Float(value) {
-                 yearsliderAmount.value = x
-                 TenureStepper.value = Double(x)
-             }
-           }
-    } 
+            if let x = Float(value) {
+                yearsliderAmount.value = x
+                TenureStepper.value = Double(x)
+            }
+        }
+    }
     @IBAction func AmountStipper(_ sender: UIStepper) {
         let value = sender.value
         let amountvalue = Int(value)
         AmountValue.text = String(amountvalue)
         sliderAmount.value = Float(value)
-      }
-        @IBAction func InterestStepper(_ sender: UIStepper) {
-           let Interestvalue = sender.value
-       // InterestTextField.text = String(format:"%.02f", Interestvalue)
-       InterestTextField.text = String(Interestvalue)
+    }
+    @IBAction func InterestStepper(_ sender: UIStepper) {
+        let Interestvalue = sender.value
+        InterestTextField.text = String(Interestvalue)
         interestSlider.value = Float(Interestvalue)
-          
+        
     }
     @IBAction func TenureStepper(_ sender: UIStepper) {
         let Tenurevalue = sender.value
@@ -87,7 +85,6 @@ class ViewController: UIViewController {
         TenureTextField.text = String(result)
         TenureSlider.value = Float(Tenurevalue)
     }
-    // calcutae result value......
     @IBAction func calButton(_ sender: UIButton) {
         guard let amountText = AmountValue.text, let amount = Double(amountText), let interestText = InterestTextField.text, let interest =  Double(interestText), let yearText = TenureTextField.text, let year = Double(yearText)  else {
             return
@@ -102,7 +99,6 @@ class ViewController: UIViewController {
         ResultLable.text = String(answer)
         
     }
-    
 }
 
- 
+
